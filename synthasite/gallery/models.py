@@ -8,11 +8,9 @@ add_introspection_rules([], ["^synthasite\.widgets\.RemovableImageField"])
 class Category(models.Model):
     
     date_created = models.DateTimeField(auto_now_add=True)
-    title  = models.CharField(max_length=20, unique=True)
+    title  = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(unique=True)
-    category_description =models.TextField(null=False)
-    category_name = models.CharField(max_length=30,  unique=True)
-    category_image = RemovableImageField(upload_to='images/upload/catimg', null=True, blank=True)
+    category_name = models.CharField(max_length=50,  unique=True)
     is_publish = models.BooleanField(default=True)
     
     class Meta:
@@ -25,6 +23,7 @@ class Category(models.Model):
         
     def get_absolute_url(self):
         return '%s/' % (self.slug)
+
     def save(self, force_insert=False, force_update=False):
          super(Category, self).save(force_insert, force_update)
          try:
@@ -35,14 +34,13 @@ class Category(models.Model):
              pass
 
 class CategoryImage(models.Model):
-   
-    title  = models.CharField(max_length=20, unique=True)
+    
+    title  = models.CharField(max_length=50, unique=True)
     slug= models.SlugField(unique=True)
     order = models.IntegerField(null=True, blank=True)
     date_created= models.DateTimeField(auto_now_add=True)
     image_category= models.ForeignKey('Category', to_field='category_name')  
     image = RemovableImageField(upload_to='images/upload', null=True, blank=True)
-    image_description =models.TextField(null=True)
     is_publish = models.BooleanField(default=True)
     
     class Meta:
