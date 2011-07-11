@@ -9,17 +9,13 @@
         <meta name="keywords" content="" />
         <meta name="author" content="" />   
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />   
-        <link href="{{ MEDIA_URL }}css/home.css" rel="stylesheet" type="text/css"/>
+        <link href="{{ MEDIA_URL }}css/style.css" rel="stylesheet" type="text/css"/>
 {% endblock %}
     </head>
 <body>
 {% block content %}
 				
- {% for g in category %}
-            <div><br><br>
-              <h3> <p> <a href="{% url home %}gallery/{{g.get_absolute_url}}">{{g.category_name}}</a></p></h3>
-            </div>
-            {% endfor %}
+ 
 {% endblock %}
 </body>
 </html>

@@ -16,7 +16,7 @@ body {background-color:#161616
 
 .tail-top {background:url('../images/tail-top.jpg') left top repeat-x #fff}
 
-.tail-bottom {background:url('../images/tail-bottom.gif') left bottom repeat-x}
+.tail-bottom {background:url('../images/tail-bottom.gif') left bottom repeat-x }
 
 #header {height:420px}
 
@@ -32,7 +32,7 @@ body {background-color:#161616
              text-transform:uppercase;
              font-weight:bold;
              padding:0 35px;
-             margin-top: 34px;
+             margin-top: -5px;
              padding-left: 42px;
              padding-right:42px;
              }
@@ -44,12 +44,17 @@ body {background-color:#161616
        margin:0 auto;
        font-size:.75em}
 
-.wrapper {width:100%;
-          overflow:hidden}
-
-#content .col-1 {   margin-left: 92px;
+#content img {
+                          height: 40%;
+                         margin-right: 167 }
+#content{          
+	          		
+		   margin-left: 92px;
                     text-align: justify;
                     width: 829px;
+                   padding-bottom:98px;
+		    margin-top:-150px;
+
                    }               
                 
-#content .section {padding-bottom:98px}
+

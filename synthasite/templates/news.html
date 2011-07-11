@@ -15,9 +15,12 @@
 <body>
 {% block content %}
 				
- {% for g in category %}
-            <div><br><br>
-              <h3> <p> <a href="{% url home %}gallery/{{g.get_absolute_url}}">{{g.category_name}}</a></p></h3>
+          {% for n in news %}
+            <div>
+                   <h3>{{n.title}}</h3>
+                  <h4> {{n.publish_date}}</h4>
+               <p>{{n.content|safe}}</p> 
+               <hr/><br>
             </div>
             {% endfor %}
 {% endblock %}

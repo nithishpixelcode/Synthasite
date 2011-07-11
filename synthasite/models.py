@@ -28,7 +28,6 @@ class Navigation(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
-    image = RemovableImageField(upload_to='images/news/')
     content = models.TextField()
     publish = models.BooleanField()
     publish_date = models.DateTimeField(default=datetime.now())

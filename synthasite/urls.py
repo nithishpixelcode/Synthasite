@@ -7,17 +7,14 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'mysite.views.home', name='home'),
-    # url(r'^mysite/', include('mysite.foo.urls')),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^home/', 'synthasite.views.home', name='home'),
     url(r'^$', 'synthasite.views.home', name='home'),
+    url(r'^messages/', include('synthasite.blog.urls')),
+    url(r'^links/', 'synthasite.views.links', name='links'),
+    url(r'^news/', 'synthasite.views.news', name='news'),
+    url(r'^Testimonials/', 'synthasite.views.testimonials', name='testimonials'),
     url(r'^gallery/$', 'synthasite.gallery.views.index', name='gallery'),
     url(r'^gallery/(?P<slug>[-\w]+)/$','synthasite.gallery.views.gallery' ),
 )
