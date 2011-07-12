@@ -14,8 +14,7 @@ class Navigation(models.Model):
     content = models.TextField(null=True, blank=True)
     publish = models.BooleanField(default=True)
     publish_date = models.DateTimeField(default=datetime.now())
-
-     
+   
     class Meta:
         ordering = ['order',]
     
@@ -47,6 +46,12 @@ class Link(models.Model):
 
 class Testimonials(models.Model):
     fromname = models.CharField(max_length=200, null=True, blank=True)
-    message = models.CharField(max_length=2000, null=True, blank=True)  
+    message = models.TextField() 
+
+ 
+    def __unicode__(self):
+        return self.fromname
+
+
 
  

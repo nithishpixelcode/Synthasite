@@ -14,8 +14,11 @@
     </head>
 <body>
 {% block content %}
-				
- 
+   {% for t in testimonials %}				
+      <h2>{{t.fromname}}</h2><br/>
+      <h4>{{t.message|safe}}</h4>
+      <br/><hr/><br/> 
+   {% endfor %}
 {% endblock %}
 </body>
 </html>

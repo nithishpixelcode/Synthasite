@@ -26,5 +26,6 @@ def links(request):
 
 def testimonials(request):
     nav = Navigation.objects.all()
-    context = { 'nav' : nav}
+    testimonials=Testimonials.objects.all()
+    context = {'testimonials':testimonials, 'nav' : nav}
     return render_to_response ('testimonials.html', context, context_instance = RequestContext(request))

@@ -614,7 +614,7 @@ CREATE TABLE `synthasite_news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
   `slug` varchar(50) NOT NULL,
-  `image` varchar(100) DEFAULT NULL,
+  `image` varchar(100) NOT NULL,
   `content` longtext NOT NULL,
   `publish` tinyint(1) NOT NULL,
   `publish_date` datetime NOT NULL,
@@ -667,4 +667,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-07-12 17:59:23
+-- Dump completed on 2011-07-12 13:24:14

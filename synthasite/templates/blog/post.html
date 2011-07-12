@@ -14,11 +14,11 @@
 {% for post in posts %}
     <div class="post-entry">
         <div class="calendar-div">
-            <span class="entry-month">{{ post.publish_date|date:"M"}}</span><br/>
+            <span class="entry-month">{{ post.publish_date|date:"M"}}</span>
             <span class="entry-date">{{ post.publish_date|date:"d"}}</span>
         </div>
         <div class="content-div">
-            <a title="{{ post.title }}" rel="bookmark" href="{% url index %}{{ post.get_absolute_url }}"><h1>{{ post.title }}</h1></a>
+            <a title="{{ post.title }}" rel="bookmark" href="{% url index %}{{ post.get_absolute_url }}"><h2>{{ post.title }}</h2></a>
             <div class="entry-content">
                 {{ post.content|safe }}
             </div>

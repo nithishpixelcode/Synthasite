@@ -108,10 +108,13 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'south',
+
+    'south',    
+
     'synthasite',
     'synthasite.gallery',
     'synthasite.blog',
+    'sorl.thumbnail',
 )
 
 # A sample logging configuration. The only tangible logging

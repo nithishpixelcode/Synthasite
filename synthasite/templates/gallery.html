@@ -1,108 +1,91 @@
 {% extends "base.html" %}
+{% load thumbnail %}
 
 {% block extra_head %}
         <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}fancybox/jquery.fancybox-1.3.4.css" media="screen" />
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.jcarousel.min.js"></script>
-	<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.spasticNav.js"></script>
-        <script>
-            !window.jQuery && document.write('<script src="{{ MEDIA_ROOT }}js/jquery.js"><\/script>');
-        </script>
-        <script type="text/javascript" src="{{ MEDIA_URL }}fancybox/jquery.easing-1.4.pack.js"></script>
-        <script type="text/javascript" src="{{ MEDIA_URL }}fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-        <script type="text/javascript" src="{{ MEDIA_URL }}fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-	<script type="text/javascript" src="{{ MEDIA_URL }}js/spasticNav.js"></script>
-        <script type="text/javascript">
-	    $(document).ready(function() {
-		     
-		    
-	      $("a[rel=group]").fancybox({
-		       
-					'transitionIn'		: 'elastic',
-					'transitionOut'		: 'elastic',
-		        		'speedIn'		:	600, 
-		        		'speedOut'		:	200, 
-		        		'opacity' :true,
-		        		'changeFade'  :'slow',
-					'titlePosition' 	: 'over',
-					'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
-						return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + 
-						currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
-						},
-		        		//'cyclic':true, 'onStart': function(){ toggleRotating(true); }
-				});
-	    });
-	  
- </script>
-<script src="{{ MEDIA_URL }}galleria/galleria.js"></script>
-<style>
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}jcarousel/skins/tango/skin.css" media="screen" />
+        <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}jcarousel/lib/jquery.jcarousel.min.js"></script>
+<style type="text/css">
     
+#largeImg {
+	border: solid 1px #ccc;
+	width: 550px;
+	height: 400px;
+	padding: 5px;
+}
+.thumbs img {
+	border: solid 1px #ccc;
+	width: 100px;
+	height: 100px;
+	padding: 4px;
+}
+.thumbs img:hover {
+	border-color: #FF9900;
+}
+.jcarousel-skin-tango .jcarousel-container-horizontal {
+    width: 480px;
+}
+ 
+.jcarousel-skin-tango .jcarousel-clip-horizontal {
+    width: 100%;
+}
 
-    #brick { width: 64px; height: 12px; background-color: #272526; margin-left: 39px; }
-    #content_container { width: 981px; padding: 10px 20px 20px 20px; line-height: 30px; font-size: 16px; margin: 0 auto; }
-    #content_para { padding-left: 35px; width: 410px; }
-    #galleria{ text-align: left; }
-    .galleria-thumbnails { margin: 0 auto; }
-    .galleria-container { background: white; }
-    .breadcrumbs { height: 120px; padding-bottom: 20px; font-family: Arial,Helvetica,sans-serif, Lucida; text-align: left; }
-    .breadcrumbs a { text-decoration: none; }
-    .sub_nav_crumb { padding: 55px 0 0 60px; font-size: 24px; {% if nav.breadcrumb_color %}color: {{ nav.breadcrumb_color }};{% endif %} }
-    .gallery_breadcrumb { {% if gallery.breadcrumb_color %}color: {{ gallery.breadcrumb_color }};{% endif %} }
-    .galleria-image-nav-left { left: 90px; width:63px; height: 63px;}
-    .galleria-image-nav-right { width: 63px; height: 63px; background-position: -270px 0; left: 930px;}
-    .galleria-image-nav { margin-left: -58px;  }
 </style>
 
-<!--[if (IE 6)]>
-<style>
-    #galleria { text-align: center; }
-    #brick { margin-left: -881px; }
-</style>
-<![endif]-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("li a").click(function(event){
+		event.preventDefault();
+		var largePath = $(this).attr("href");
+		var largeAlt = $(this).attr("title");
+		$("#largeImg").attr({ src: largePath, alt: largeAlt });
+		$("#largeImg").hide();
+		$("#largeImg").fadeIn('slow');
+		
+});
+
+$('#mycarousel').jcarousel( {visible: 5,scroll:5});
+
+});
+</script>
+
         
 {% endblock %}
 
-{% block document_ready %}
 
-var version = Browser.Version();
 
-if(version==6){
-    
-} else {
-    // Load theme
-    Galleria.loadTheme('{{ MEDIA_URL }}galleria/themes/classic/galleria.classic.js');
-    
-    // run galleria and add some options
-    $('#galleria').galleria({
-        height: 'auto',
-        transition: 'fade', // crossfade photos
-        transition_speed: 700, // slow down the crossfade
-        data_config: function(img) {
-            // will extract and return image captions from the source:
-            return  {
-                title: $(img).parent().next('strong').html(),
-                description: $(img).parent().next('strong').next().html()
-            };
-        }
-    });
-}
 
-{% endblock %}
+
 
 {% block content %}
 
 
       <div id="content_container">
-        <div id="galleria">
-            {% for g in imageslist %}
-            <div>
-                <a href="{{ MEDIA_URL }}{{ g.image }}">
-                    <img src="{{ MEDIA_URL }}{{ g.image }}">
-                </a>
-            </div>
-            {% endfor %}
-        </div>
+	<p style="height:420px;"><img id="largeImg" src="{{ MEDIA_URL }}{{ firstimage.image }}" alt="Large image" style="height: 400px;" /></p> 
+
+
+
+ 
+<p class="thumbs">
+<ul id="mycarousel" class="jcarousel-skin-tango">  
+{% for g in imageslist %}
+ 
+    <li> 
+	<a href="{{ MEDIA_URL }}{{ g.image }}" title="{{ g.title }}">
+<img src="{{ MEDIA_URL }}{{ g.image }}" alt="" style="height: 75px;width:75px;" />
+{% thumbnail g.image "96x96" as im %}
+    <img src="{{ im.image }}"/>
+
+{% endthumbnail %}
+ </a></li>
+{% endfor %}
+</ul>
+</p> 
+
+
+
      </div>
 
 
