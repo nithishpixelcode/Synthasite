@@ -16,10 +16,10 @@
 <body>
 
 {% block home_content %}
-	<div class="img">
-                                                    
-        <img src="{{ MEDIA_URL }}images/MothersDay.jpg"  width="540"/>
-        </div>	<br/>
+	
+        <div id="img">                                            
+
+       	</div>
 <div id="home">		
 <b>Jesus, Blessed Redeemer Church(JBRC)</b> is a Christ-centered, Bible-obedient Christian church who REALLY exercises the power and authority that our Redeemer Jesus Christ of Nazareth has bestowed upon us.<br/><br/>
 
@@ -41,10 +41,12 @@ Worship Service on Sundays from 2-4pm Click Here for Directions.
 <div id="wc_image">
  <img src="{{ MEDIA_URL }}images/ws.jpg"  width="300"/>
 </div>
-
+ 
   <div id="firstnews">
-           {{ firstnews.title }}
-</div>
+            <h2><b>BREAKING NEWS</b></h2>
+
+          <a title="{{ firstnews.title }}" href="{% url home %}{{ firstnews.get_absolute_url }}"><h2>{{ firstnews.title }}</h2></a>
+  </div>
  {% endblock %}
 
 </body>

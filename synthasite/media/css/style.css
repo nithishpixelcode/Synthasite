@@ -60,10 +60,7 @@ body {
     margin: 0 auto;
     width: 1000px;
 }
-#content img {
-    height: 40%;
-    margin-right: 167px;
-}
+
 #content {
     font-family: Arial,Helvetica,sans-serif;
     font-size: 110%;
@@ -79,14 +76,46 @@ body {
     margin-top: -92px;
     padding-bottom: 114px;
     text-align: justify;
-    width: 542px;
+    width: 829px;
 }
 #home {
     color: black;
     font-family: Arial,Helvetica,sans-serif;
+    width:543px;
+    margin-top:-80px;
 }
+
+#img{
+  background: url("../images/MothersDay.jpg") no-repeat;
+  width:550px;
+  height:60%;
+    }
 #wc_image {
     margin-left: 557px;
-    margin-top: -1003px;
+    margin-top: -1020px;
 }
+
+#firstnews {
+    margin-left: 572px;
+    margin-top: 40px;
+    line-height: 2.125em;
+    font-size:160%;
+}
+
+#firstnews a {
+    font-size:14px;
+}
+#line {
+    padding: 25;
+    margin-left: 46;
+   
+}
+
+#firstnews h2 b {
+    text-decoration: blink;
+}
+
+
+}
+
 
