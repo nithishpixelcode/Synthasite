@@ -8,7 +8,9 @@ from django.core.urlresolvers import reverse
 
 def home(request):
     nav = Navigation.objects.all()
-    context = { 'nav' : nav}
+    news=News.objects.all()
+    firstnews=news[0]
+    context = { 'nav' : nav, 'firstnews':firstnews}
     return render_to_response ('home.html', context, context_instance = RequestContext(request))
 
 

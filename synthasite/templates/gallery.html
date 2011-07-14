@@ -24,7 +24,7 @@
 	border-color: #FF9900;
 }
 .jcarousel-skin-tango .jcarousel-container-horizontal {
-    width: 480px;
+    width: 750px;
 }
  
 .jcarousel-skin-tango .jcarousel-clip-horizontal {
@@ -46,7 +46,7 @@ $("li a").click(function(event){
 		
 });
 
-$('#mycarousel').jcarousel( {visible: 5,scroll:5});
+$('#mycarousel').jcarousel( {visible: 7,scroll:7});
 
 });
 </script>
@@ -63,7 +63,7 @@ $('#mycarousel').jcarousel( {visible: 5,scroll:5});
 
 
       <div id="content_container">
-	<p style="height:420px;"><img id="largeImg" src="{{ MEDIA_URL }}{{ firstimage.image }}" alt="Large image" style="height: 400px;" /></p> 
+	<p style="height:420px;"><img id="largeImg" src="{{ MEDIA_URL }}{{ firstimage.image }}" alt="Large image" style="height: 400px;width:820px;" /></p> 
 
 
 
@@ -76,7 +76,7 @@ $('#mycarousel').jcarousel( {visible: 5,scroll:5});
 	<a href="{{ MEDIA_URL }}{{ g.image }}" title="{{ g.title }}">
 <img src="{{ MEDIA_URL }}{{ g.image }}" alt="" style="height: 75px;width:75px;" />
 {% thumbnail g.image "96x96" as im %}
-    <img src="{{ im.image }}"/>
+    <img src="{{ im.url }}">
 
 {% endthumbnail %}
  </a></li>

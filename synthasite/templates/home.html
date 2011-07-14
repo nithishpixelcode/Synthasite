@@ -10,15 +10,17 @@
         <meta name="author" content="" />   
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />   
         <link href="{{ MEDIA_URL }}css/home.css" rel="stylesheet" type="text/css"/>
+         <link href="{{ MEDIA_URL }}css/style.css" rel="stylesheet" type="text/css"/>
 	{% endblock %}
     </head>
 <body>
 
-{% block content %}
+{% block home_content %}
 	<div class="img">
                                                     
-        <img src="{{ MEDIA_URL }}images/MothersDay.jpg"  width="824"/>
-        </div>	<br/>		
+        <img src="{{ MEDIA_URL }}images/MothersDay.jpg"  width="540"/>
+        </div>	<br/>
+<div id="home">		
 <b>Jesus, Blessed Redeemer Church(JBRC)</b> is a Christ-centered, Bible-obedient Christian church who REALLY exercises the power and authority that our Redeemer Jesus Christ of Nazareth has bestowed upon us.<br/><br/>
 
 Thus, just like in the times of the Pentecost, we joyfully exercise the full meaning of redemption by the blood of Jesus through worship, prayer, holiness, righteousness  and the fruit of the Holy Spirit (the complete package)...as should be the characteristics of the bride of our Lord Jesus Christ, our blessed redeemer.<br/><br/>
@@ -34,8 +36,16 @@ We are a multi-cultural, fun-loving, vibrant Christian church involved with acti
 
 We love to worship God and fellowship with the brethren. Click here for photos. As per request, we pray for people's individual needs at the end of the Worship Service or people may ask for an appointment from our Pastors (416)938-9147.  If you desire to worship God in the spirit and/or if you or anyone you know need our physical/mental/emotional/spiritual help, please feel free to come to our
 <br/><br/>
-Worship Service on Sundays from 2-4pm Click Here for Directions.
-	
-{% endblock %}
+Worship Service on Sundays from 2-4pm Click Here for Directions.	
+  </div>                                                						                                               
+<div id="wc_image">
+ <img src="{{ MEDIA_URL }}images/ws.jpg"  width="300"/>
+</div>
+
+  <div id="firstnews">
+           {{ firstnews.title }}
+</div>
+ {% endblock %}
+
 </body>
 </html>

@@ -30,7 +30,6 @@ class News(models.Model):
     content = models.TextField()
     publish = models.BooleanField()
     publish_date = models.DateTimeField(default=datetime.now())
-    
     class Meta:
         ordering = ['-publish_date',]
         

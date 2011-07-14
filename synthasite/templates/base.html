@@ -15,11 +15,12 @@
     </head>
       <body > 
              
-              <div class="tail-top">
+              <!--<div class="tail-top">-->
 	      
-			    <div id="main"> 
+	 <div id="main">  
                             <div id="header">
-                                 <div id="logo"></div>
+                                  <div id="title"><h1>JESUS BLESSED REDEEMER CHURCH</h1></div>     
+                                 <div id="logo"></div> 
                                  <div class="row-1">    
                                          <ul class="site-nav">
 					  <a></a>
@@ -27,20 +28,24 @@
                                           <a href="{% url home %}{{ n.get_absolute_url }}">{{ n.title }}</a>                                                         
 				          {% endfor %}
                                          </ul>  
-                                    </div>
+                                 </div>
                               </div>
-                                          <div id="content">
-		                                   
-                                                    {% block content %} 
-						    {% endblock %}
+                                          
+		                                 
+                                                    <div id="home_content">
+                                                    {% block home_content %}
+                                                     
+                                                    {% endblock %}</div> 
+					
                                                       
-                                             </div> 
+
+                                                <div id="content">  
+                                                    {% block content %} 
+						    {% endblock %}   
+                                                </div> 
             
-                            </div>  
-             
-              
-             
-             </div>
+       </div>           
+            
           <div class="tail-bottom"><img src="{{ MEDIA_URL }}images/tail-bottom.gif"/></div>  
     </body>
 <html>
