@@ -1,0 +1,26 @@
+{% extends "news.html" %}
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+    <html>
+    <head>
+        {% block extra_head %} 
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="" />   
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />   
+        <link href="{{ MEDIA_URL }}css/home.css" rel="stylesheet" type="text/css"/>
+         {% endblock %}
+    </head>
+<body>
+{% block content %}
+		<div id="news_content">  		
+                     {% for topnews in news %}
+                    <h2>{{topnews.title}}</h2><br/>
+                   <h4> {{topnews.publish_date}}</h4>
+                   <p>{{topnews.content|safe}}</p> 
+                   <hr/><br>        
+                  {% endfor %}
+              </div>
+{% endblock %}
+</body>
+</html>

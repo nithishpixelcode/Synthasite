@@ -14,14 +14,8 @@
 <style>
 
 </style>
-
-
-
-{% block content %}
-<div id="main_content">
-  
-    <div id="blog_container">
-
+{% block content %} 
+   <div id="blog_container">
     {% for post in posts %}
         <div class="post-entry">
             <div class="calendar-div">
@@ -29,20 +23,22 @@
                 <span class="entry-date">{{ post.publish_date|date:"d"}}</span>
             </div>
             <div class="content-div">
-                <a title="{{ post.title }}" rel="bookmark" href="{% url index %}{{ post.get_absolute_url }}"><h2>{{ post.title }}</h2></a>
+                <a title="{{ post.title }}" rel="bookmark" href="{% url index %}{{ post.get_absolute_url }}"><h2>{{ post.title }}</h2></a><br/>
                 <div class="entry-content">
                     {{ post.content|safe|truncatewords_html:100 }}
                 </div>
                 <div class="social">
-                    <span class="read_more"><a href="{% url index %}{{ post.get_absolute_url }}"><h3>Read More &raquo;</h3></a></span><br/>
+                    <span class="read_more"><a href="{% url index %}{{ post.get_absolute_url }}"><h3>Read More &raquo;</h3></a></span>
                     <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=123147817768516&amp;xfbml=1"></script><fb:like href="{% url index %}{{ post.get_absolute_url }}" send="true" layout="button_count" width="150" show_faces="false" font=""></fb:like>
                 </div>
             </div>
-        </div><br/><br/><hr/><br/>
-    {% endfor %}
-   
+        </div><br/><hr/><br/>
+    {% endfor %}   
     </div>
-
-   
+<div id="recent_blogs">
+<p>Recent Blogs</p><br/>
+ {% for blog in posts %}
+ <a title="{{ blog.title }}" href="{% url index %}{{ blog.get_absolute_url }}"><h4>{{ blog.title }}</h4><br/></a>
+  {% endfor %}
 </div>
 {% endblock %}

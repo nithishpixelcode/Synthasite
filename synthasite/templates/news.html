@@ -10,19 +10,26 @@
         <meta name="author" content="" />   
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />   
         <link href="{{ MEDIA_URL }}css/home.css" rel="stylesheet" type="text/css"/>
-{% endblock %}
+         {% endblock %}
     </head>
 <body>
 {% block content %}
-				
-          {% for n in news %}
-            <div>
-                   <h2>{{n.title}}</h2><br/>
-                  <h4> {{n.publish_date}}</h4>
-               <p>{{n.content|safe}}</p> 
-               <hr/><br>
-            </div>
-            {% endfor %}
+		<div id="news_content">      		
+                     {% for n in news %}
+                    <h2>{{n.title}}</h2><br/>
+                   <h4> {{n.publish_date}}</h4>
+                   <p>{{n.content|safe}}</p> 
+                   <hr/><br>   
+                    {% endfor %}
+              </div>
+<div id="recent_news">
+ <h2>Categories</h2>
+    <a href="/news/"> <br/>News Archive 2011</a>
+ <br/><br/><h2>Recent Posts</h2><br/>
+ {% for n in firstnews %}
+ <a title="{{ n.title }}" href="{% url home %}{{ n.get_absolute_url }}"><h4>{{ n.title }}</h4><br/></a>
+ {% endfor %}
+</div>
 {% endblock %}
 </body>
 </html>

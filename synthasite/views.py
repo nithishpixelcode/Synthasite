@@ -12,12 +12,20 @@ def home(request):
     firstnews=news[0]
     context = { 'nav' : nav, 'firstnews':firstnews}
     return render_to_response ('home.html', context, context_instance = RequestContext(request))
+ 
 
+def top_news(request,slug):
+    nav = Navigation.objects.all()
+    news =News.objects.filter(slug=slug) 
+    topnews = news[0:1]
+    context = { 'news' : news, 'nav' : nav, 'topnews' : topnews}
+    return render_to_response ('top_news.html', context, context_instance = RequestContext(request))
 
 def news(request):
     nav = Navigation.objects.all()
     news=News.objects.all()
-    context = { 'news':news, 'nav' : nav}
+    firstnews=news[0:3]
+    context = { 'news':news, 'nav' : nav, 'firstnews':firstnews }
     return render_to_response ('news.html', context, context_instance = RequestContext(request))
 
 

@@ -41,6 +41,7 @@ body {
     padding-left: 14px;
 }
 .site-nav a {
+    color:black;
     display: block;
     float: left;
     font-size: 120%;
@@ -62,6 +63,7 @@ body {
 }
 
 #content {
+    color:black;
     font-family: Arial,Helvetica,sans-serif;
     font-size: 110%;
     margin-left: 92px;
@@ -71,9 +73,9 @@ body {
     width: 829px;
 }
 #home_content {
- 
+     color:black;
     margin-left: 77px;
-    margin-top: -92px;
+    margin-top: -99px;
     padding-bottom: 114px;
     text-align: justify;
     width: 829px;
@@ -82,7 +84,7 @@ body {
     color: black;
     font-family: Arial,Helvetica,sans-serif;
     width:543px;
-    margin-top:-80px;
+    margin-top:-160px;
 }
 
 #img{
@@ -104,6 +106,7 @@ body {
 
 #firstnews a {
     font-size:14px;
+    color:black;
 }
 #line {
     padding: 25;
@@ -115,7 +118,31 @@ body {
     text-decoration: blink;
 }
 
-
+#news_content {
+ width: 600;
 }
 
+#recent_news{
+    margin-top: -2533;
+    margin-left: 678; 
+ 
+}    
+#recent_news a{
+    color:black;
+    line-height: 1.125em;
+    text-align: left;
+    text-decoration: none;
+}
+
+#recent_blogs a {
+    color: black;
+    font-size: 16px;
+    line-height: 0.600em;
+    text-align: left;
+    text-decoration: none;
+}
+#recent_blogs p {
+    font-size: 25;
+    font-weight: bold;
+}
 

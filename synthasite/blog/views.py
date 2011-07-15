@@ -8,15 +8,16 @@ from django.contrib import messages
 
 def index(request):
     posts = Post.objects.filter(publish=1)    
-    nav = Navigation.objects.all()
-    #posts = Post.objects.filter(publish=1)    
+    nav = Navigation.objects.all() 
     context = { 'nav' : nav, 'posts' : posts,'categories' : Category.objects.all() }    
     return render_to_response ( 'blog/index.html', context, context_instance = RequestContext(request))
+
 
 def category_posts(request, category):
  
     nav = Navigation.objects.all()
     category = Category.objects.get(slug=category)
+
     posts = Post.objects.filter(categories=category)
     context = { 'nav' : nav, 'category' : category, 'posts' : posts, 'categories' : Category.objects.all() }
     return render_to_response ( 'blog/index.html', context, context_instance = RequestContext(request) )
@@ -25,9 +26,10 @@ def category_posts(request, category):
 def post(request, category, post):
     nav = Navigation.objects.all()
     category = Category.objects.get(slug=category)
-    
+   
     from synthasite.blog.forms import CommentForm
     posts = Post.objects.filter(slug=post)
+    blog=posts[0]
     if request.POST:
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -55,7 +57,7 @@ def post(request, category, post):
     else:
         form = CommentForm()
     
-    context = { 'nav' : nav, 'form' : form, 'category' : category, 'posts' : posts, 'categories' : Category.objects.all() }
+    context = { 'nav' : nav, 'form' : form, 'category' : category,' blog': blog,  'posts' : posts, 'categories' : Category.objects.all() }
     
     return render_to_response (
         'blog/post.html',

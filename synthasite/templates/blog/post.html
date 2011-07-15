@@ -18,7 +18,7 @@
             <span class="entry-date">{{ post.publish_date|date:"d"}}</span>
         </div>
         <div class="content-div">
-            <a title="{{ post.title }}" rel="bookmark" href="{% url index %}{{ post.get_absolute_url }}"><h2>{{ post.title }}</h2></a>
+            <a title="{{ post.title }}" rel="bookmark" href="{% url index %}{{ post.get_absolute_url }}"><h2>{{ post.title }}</h2></a><br/>
             <div class="entry-content">
                 {{ post.content|safe }}
             </div>
